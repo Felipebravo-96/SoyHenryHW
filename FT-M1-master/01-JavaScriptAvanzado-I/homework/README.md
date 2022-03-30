@@ -15,26 +15,26 @@ var a = 5;
 var b = 10;
 var c = function(a, b, c) {
   var x = 10;
-  console.log(x);
-  console.log(a);
+  console.log(x); //imprime 10
+  console.log(a); //imprime 8
   var f = function(a, b, c) {
     b = a;
-    console.log(b);
+    console.log(b); //imprime 8
     b = c;
     var x = 5;
   }
   f(a,b,c);
-  console.log(b);
+  console.log(b); //imprime 9
 }
 c(8,9,10);
-console.log(b);
-console.log(x);
+console.log(b); //imprime 10
+console.log(x); //imprime 1
 ```
 
 ```javascript
-console.log(bar);
-console.log(baz);
-foo();
+console.log(bar); //imprime notdefined
+console.log(baz); //error baz no esta declarada
+foo(); //hola
 function foo() { console.log('Hola!'); }
 var bar = 1;
 baz = 2;
@@ -45,19 +45,19 @@ var instructor = "Tony";
 if(true) {
     var instructor = "Franco";
 }
-console.log(instructor);
+console.log(instructor);// imprime Franco
 ```
 
 ```javascript
 var instructor = "Tony";
-console.log(instructor);
+console.log(instructor); //imprime Tony
 (function() {
    if(true) {
       var instructor = "Franco";
-      console.log(instructor);
+      console.log(instructor); //imprime Franco//funvcion no declarada nunca se llama
    }
 })();
-console.log(instructor);
+console.log(instructor);//iomprime Tony
 ```
 ```javascript
 var instructor = "Tony";
@@ -65,33 +65,33 @@ let pm = "Franco";
 if (true) {
     var instructor = "The Flash";
     let pm = "Reverse Flash";
-    console.log(instructor);
-    console.log(pm);
+    console.log(instructor); //imprime The Flash
+    console.log(pm); // imprime Reverse flash
 }
-console.log(instructor);
-console.log(pm);
+console.log(instructor); //imprime Tony???? no, imprime the flash
+console.log(pm); // imprime franco
 ```
 ### Coerción de Datos
 
 ¿Cuál crees que será el resultado de la ejecución de estas operaciones?:
 
 ```javascript
-6 / "3"
-"2" * "3"
-4 + 5 + "px"
-"$" + 4 + 5
-"4" - 2
-"4px" - 2
-7 / 0
-{}[0]
-parseInt("09")
-5 && 2
-2 && 5
-5 || 0
-0 || 5
-[3]+[3]-[10]
-3>2>1
-[] == ![]
+6 / "3" // 2
+"2" * "3" // 6
+4 + 5 + "px" //"9px" o 45px
+"$" + 4 + 5 // $45
+"4" - 2  //2
+"4px" - 2 // NaN
+7 / 0 // error
+{}[0] // crea un objeto con el arreglo q tiene
+parseInt("09") // 9
+5 && 2 // al parecer da 2 
+2 && 5 // al parecer da 5
+5 || 0 // supongo q 5
+0 || 5 // supongo q 0//da 5 :V
+[3]+[3]-[10] //Da 23!!!!!!!!!!!!!! porq!!!!!!!!!
+3>2>1 // por que da false???
+[] == ![] // false pos no :V da true
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -103,8 +103,8 @@ parseInt("09")
 
 ```javascript
 function test() {
-   console.log(a);
-   console.log(foo());
+   console.log(a); //undef 
+   console.log(foo()); // 2
 
    var a = 1;
    function foo() {
@@ -128,7 +128,7 @@ function getFood(food) {
     return snack;
 }
 
-getFood(false);
+getFood(false); //al ser falso no se ejecuta queda undef
 ```
 
 
@@ -148,11 +148,11 @@ var obj = {
    }
 };
 
-console.log(obj.prop.getFullname());
+console.log(obj.prop.getFullname()); //Aurelio
 
 var test = obj.prop.getFullname;
 
-console.log(test());
+console.log(test()); // trae aurelio
 ```
 
 ### Event loop
@@ -165,6 +165,7 @@ function printing() {
    setTimeout(function() { console.log(2); }, 1000);
    setTimeout(function() { console.log(3); }, 0);
    console.log(4);
+   //orden de impresion es 1  4  3  2
 }
 
 printing();
