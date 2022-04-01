@@ -15,15 +15,15 @@ var a = 5;
 var b = 10;
 var c = function(a, b, c) {
   var x = 10;
-  console.log(x); //imprime 10
+  console.log(x); //imprime 10 
   console.log(a); //imprime 8
-  var f = function(a, b, c) {
-    b = a;
-    console.log(b); //imprime 8
+  var f = function(8a, b, c) {
+    b = a; 
+    console.log(b); //imprime 8 
     b = c;
     var x = 5;
   }
-  f(a,b,c);
+  f(8a,9b,10c);
   console.log(b); //imprime 9
 }
 c(8,9,10);
@@ -54,7 +54,7 @@ console.log(instructor); //imprime Tony
 (function() {
    if(true) {
       var instructor = "Franco";
-      console.log(instructor); //imprime Franco//funvcion no declarada nunca se llama
+      console.log(instructor); //imprime Franco//funcion no declarada nunca se llama
    }
 })();
 console.log(instructor);//iomprime Tony
@@ -152,7 +152,7 @@ console.log(obj.prop.getFullname()); //Aurelio
 
 var test = obj.prop.getFullname;
 
-console.log(test()); // trae aurelio
+console.log(test()); // trae aurelio// trajo a juan perez
 ```
 
 ### Event loop

@@ -7,6 +7,15 @@ function nFactorial(n) {
   // devolvé el factorial de n (n!)
   // ej:
   // el factorial de 3 es 6 (3 * 2 * 1)
+    if(n > 0 && n <2){ 
+      return 1;
+    }
+    else if(n < 0){
+      return undefined;
+    }
+    else{
+      return  n * nFactorial(n-1);
+    }
 }
 
 function nFibonacci(n) {
@@ -15,7 +24,12 @@ function nFibonacci(n) {
   // nFibonacci(0) // 0  // el elemento 0 es cero
   // nFibonacci(1) // 1 // el elemento 1 es 1
   // nFibonacci(6) // 1 // el elemento 6 es 8
-
+  if(n === 0 || n === 1){
+    return 1
+    }else{
+      return nFibonacci(n-1) + nFibonacci(n-2)
+      } 
+  return n;
 }
 
 // Para esta parte no es necesario utilizar recursión.
@@ -23,10 +37,22 @@ function nFibonacci(n) {
 // enqueue: Agrega un valor a la queue. Respeta el orden existente.
 // dequeue: Remueve un valor de la queue. Obedece a FIFO y respeta el underflow (devuelve undefined cuando la queue tiene size cero, o sea, cuando no tiene ningún elemento).
 // size: Devuelve el número de elementos que contiene la queue.
-
 function Queue() {
-
+  this.queue = [];
+  Queue.prototype.enqueue = function(valor){
+    this.queue.push(valor);
+  };
+  Queue.prototype.dequeue = function(){
+    if(this.queue.length === 0){
+    return undefined
+  }return this.queue.shift()
+  };
+  Queue.prototype.size = function(){
+    return this.queue.length;
+  }
 }
+
+
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
